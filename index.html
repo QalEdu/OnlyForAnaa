@@ -19,28 +19,29 @@
         .container {
             text-align: center;
             background: rgba(255, 255, 255, 0.8);
-            padding: 40px 60px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 90%;
+            width: 100%;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             color: #e65c00;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         p {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #333;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         button {
             background-color: #e65c00;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            font-size: 1em;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -50,8 +51,8 @@
         }
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: red;
             transform: rotate(45deg);
             animation: float 5s infinite ease-in-out;
@@ -60,23 +61,37 @@
         .heart::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background-color: red;
             border-radius: 50%;
         }
         .heart::before {
-            top: -10px;
+            top: -7px;
             left: 0;
         }
         .heart::after {
-            left: 10px;
+            left: 7px;
             top: 0;
         }
         @keyframes float {
             0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(45deg); opacity: 0.8; }
-            100% { transform: translateY(-40px) rotate(45deg); opacity: 0; }
+            50% { transform: translateY(-15px) rotate(45deg); opacity: 0.8; }
+            100% { transform: translateY(-30px) rotate(45deg); opacity: 0; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -87,7 +102,6 @@
         <p>You are kind, beautiful, and everything I could ever hope for. I admire your strength, your laughter, and the way you light up any room you walk into. I feel so lucky to have you in my life, and I want to take the next step together.</p>
         <button onclick="window.location.href='page2.html'">Continue Reading...</button>
     </div>
-
     <script>
         function createHeart() {
             const heart = document.createElement('div');
@@ -95,12 +109,10 @@
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(heart);
-
             setTimeout(() => {
                 heart.remove();
             }, 5000);
         }
-
         setInterval(createHeart, 1000);
     </script>
 </body>
