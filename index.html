@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heartfelt Words</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #e65c00;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #e65c00;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d84900;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: float 5s infinite ease-in-out;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(45deg); opacity: 0.8; }
+            100% { transform: translateY(-40px) rotate(45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>From the Bottom of My Heart...</h1>
+        <p>Ever since I met you, my life has been filled with joy and meaning. You bring out the best in me, and every moment with you feels like a gift. I can't help but smile when I think about you, and I want to share my world with you.</p>
+        <p>You are kind, beautiful, and everything I could ever hope for. I admire your strength, your laughter, and the way you light up any room you walk into. I feel so lucky to have you in my life, and I want to take the next step together.</p>
+        <button onclick="window.location.href='page2.html'">Continue Reading...</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>
